@@ -67,7 +67,18 @@ Also add the permissions below:
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-	TRLS.start(MainActivity.this, externalId, clientId, clientSecret, deviceName, devicePhoneNumber);
+
+	TRLSCallback callback = new TRLSCallback() {
+            @Override
+            public void didCreateDevice(boolean success, String deviceId) {
+
+                if(success) Log.d("TRLS", "Device created " + deviceId);
+                else Log.d("TRLS", "Error creating device");
+
+            }
+        };
+
+	TRLS.start(MainActivity.this, externalId, clientId, clientSecret, deviceName, devicePhoneNumber, devicePhoto, callback);
 }
 ```
 
@@ -77,6 +88,8 @@ protected void onCreate(Bundle savedInstanceState) {
 - clientSecret – Request a client secret with TRLS dev team 
 - deviceName – Can be null or empty
 - devicePhoneNumber - Can be null or empty
+- devicePhoto - Can be null or empty
+- callback - Device creation callback 
 
 ##Push notifications
 ￼￼Ignore the instructions below if you don’t use Google Cloud Messaging to receive push notifications. TRLS library uses Google Cloud Messaging to send push notifications. As you noticed in the manifest file, TRLS library have it’s own receiver. But you can have yours, and keep your own push notification service running. If you already have a broadcast receiver to process your push notifications, you need to verify if the notification is from a TRLS server:
