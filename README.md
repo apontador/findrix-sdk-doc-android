@@ -67,7 +67,6 @@ Also add the permissions below:
 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
 <uses-permission android:name="com.lbslocal.trls.gcm.permission.C2D_MESSAGE" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE"/> 
 <permission android:name="com.lbslocal.trls.gcm.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 ```
 
