@@ -1,6 +1,7 @@
 ##Prerequisites
 - Android Studio 1.0 or higher
 - Android 4.1 or higher
+- Compile Sdk Version: API 21
 
 ##Import the library
 1. Add the file trls.aar to PROJECT_ROOT_FOLDER/libs (create the libs folder if it doesn’t exist)
