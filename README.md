@@ -1,6 +1,6 @@
 ##Prerequisites
 - Android Studio 1.0 or higher
-- Android 4.1 or higher
+- Android 4.1 or higher (Beacon only works with Android 5.0 or higher)
 - Compile Sdk Version: API 21
 
 ##Import the library
