@@ -4,7 +4,7 @@
 
 ##Import the library
 1. Add the file trls.aar to PROJECT_ROOT_FOLDER/libs (create the libs folder if it doesn’t exist)
-2. Open build.gradle file and add the information below:<br>
+2. Open build.gradle file and add the information below:
 ```gradle
 repositories {
 	mavenCentral()
@@ -13,8 +13,22 @@ repositories {
 	} 
 }
 
+android {
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+}
+
 dependencies {
 	compile(name:'trls', ext:'aar')
+	compile 'com.google.android.gms:play-services:6.5.87'
+    	compile 'com.google.code.gson:gson:2.3.1'
+    	compile('org.apache.httpcomponents:httpmime:4.3.6') {
+        	exclude module: 'httpclient'
+    	}
+    	compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
 }
 ```
 
@@ -22,6 +36,8 @@ dependencies {
 Add the following dependencies to your app(right click on your module -> Open Module Settings -> Dependencies):
 - com.google.android.gms:play-services:6.5.87 or higher
 - com.google.code.gson:gson:2.3.1 or higher
+- org.apache.httpcomponents:httpmime:4.3.6
+- org.apache.httpcomponents:httpclient-android:4.3.5
 
 ##Manifest file
 Add the information below before the closing </application> tag:
