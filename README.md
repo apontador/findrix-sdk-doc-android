@@ -95,15 +95,19 @@ protected void onCreate(Bundle savedInstanceState) {
 
 	TRLSCallback callback = new TRLSCallback() {
             @Override
-            public void didCreateDevice(boolean success, String deviceId) {
+            public void didCreateDevice(String deviceId, Error error) {
 
-                if(success) Log.d("TRLS", "Device created " + deviceId);
-                else Log.d("TRLS", "Error creating device");
+                if(error != null) Log.d("TRLS", "Device created " + deviceId);
+                else Log.d("TRLS", "Error creating device " + error.getMessage());
 
             }
         };
 
-	TRLS.start(MainActivity.this, externalId, clientId, clientSecret, deviceName, devicePhoneNumber, devicePhoto, callback);
+	try {
+		TRLS.start(MainActivity.this, externalId, clientId, clientSecret, deviceName, devicePhoneNumber, devicePhoto, callback);
+	} catch (Exception e) {
+            e.printStackTrace();
+        }
 }
 ```
 
