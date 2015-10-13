@@ -83,11 +83,9 @@ Also add the permissions below:
 <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
 <uses-permission android:name="com.lbslocal.trls.gcm.permission.C2D_MESSAGE" />
 <permission android:name="com.lbslocal.trls.gcm.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-<!---
-<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-<uses-permission android:name="android.permission.BLUETOOTH" />
-<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
--->
+<!---<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />-->
+<!---<uses-permission android:name="android.permission.BLUETOOTH" />-->
+<!---<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />-->
 ```
 
 ##Initialization
