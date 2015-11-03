@@ -120,7 +120,10 @@ protected void onCreate(Bundle savedInstanceState) {
 - callback - Device creation callback 
 
 ##Push notifications
-￼￼Ignore the instructions below if you don’t use Google Cloud Messaging to receive push notifications. TRLS library uses Google Cloud Messaging to send push notifications. As you noticed in the manifest file, TRLS library have it’s own receiver. But you can have yours, and keep your own push notification service running. If you already have a broadcast receiver to process your push notifications, you need to verify if the notification is from a TRLS server:
+￼￼Ignore the instructions below if you don’t use Google Cloud Messaging to receive push notifications. TRLS library uses 
+
+Google Cloud Messaging to send push notifications. As you noticed in the manifest file, TRLS library has it’s own receiver. But you can have yours, and keep your own push notification service running. If you already have a broadcast receiver to process your push notifications, you need to verify if the notification is from a TRLS server:
+
 ```java
 @Override
 public void onReceive(Context context, Intent intent){
