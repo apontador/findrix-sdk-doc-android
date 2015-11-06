@@ -82,8 +82,8 @@ Also add the permissions below:
 <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 <uses-permission android:name="YOUR_PACKAGE.permission.C2D_MESSAGE" />
 <permission android:name="YOUR_PACKAGE.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+<uses-permission android:name="android.permission.BLUETOOTH" />
 <!--<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />-->
-<!--<uses-permission android:name="android.permission.BLUETOOTH" />-->
 <!--<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />-->
 ```
 
