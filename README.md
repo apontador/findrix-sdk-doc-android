@@ -59,6 +59,12 @@ Add the information below before the closing </application> tag:
 	</intent-filter>
 </receiver>
 
+<receiver android:name="lbslocal.com.trls.receivers.TRLSWiFiReceiver" >
+            <intent-filter>
+                <action android:name="android.net.wifi.SCAN_RESULTS" />
+            </intent-filter>
+        </receiver>
+
 <activity android:name="lbslocal.com.trls.message.MessageActivity" android:label="Mensagem" android:parentActivityName="YOUR_MAIN_ACTIVITY">
 	<meta-data android:name="android.support.PARENT_ACTIVITY" android:value="YOUR_MAIN_ACTIVITY"/>
 </activity>
