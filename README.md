@@ -44,20 +44,31 @@ Add the following dependencies to your app(right click on your module -> Open Mo
 ##Manifest file
 Add the information below before the closing </application> tag:
 ```xml
-<receiver android:name="lbslocal.com.trls.gcm.TRLSGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
-	<intent-filter>
-		<action android:name="com.google.android.c2dm.intent.RECEIVE" /> <category android:name="lbslocal.com.trls.gcm" />
-  </intent-filter>￼￼￼
-</receiver>
 
+<receiver android:name="lbslocal.com.trls.receivers.TRLSLocationReceiver" />
+
+<receiver android:name="lbslocal.com.trls.gcm.<receiver
+            android:name="lbslocal.com.trls.receivers.TRLSGCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="lbslocal.com.trls.gcm" />
+            </intent-filter>
+</receiver>
 <service android:name="lbslocal.com.trls.gcm.TRLSGCMIntentService" />
+		
 <service android:enabled="true" android:name="lbslocal.com.trls.core.TRLSService"/>
 
-<receiver android:name="lbslocal.com.trls.core.TRLSBootReceiver">
-	<intent-filter>
-		<action android:name="android.intent.action.BOOT_COMPLETED"/>
-	</intent-filter>
-</receiver>
+<receiver android:name="lbslocal.com.trls.receivers.TRLSBootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <!--action android:name="android.intent.action.REBOOT"/-->
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
 
 <receiver android:name="lbslocal.com.trls.receivers.TRLSWiFiReceiver" >
             <intent-filter>
@@ -65,8 +76,13 @@ Add the information below before the closing </application> tag:
             </intent-filter>
         </receiver>
 
-<activity android:name="lbslocal.com.trls.message.MessageActivity" android:label="Mensagem" android:parentActivityName="YOUR_MAIN_ACTIVITY">
-	<meta-data android:name="android.support.PARENT_ACTIVITY" android:value="YOUR_MAIN_ACTIVITY"/>
+<activity
+            android:name="lbslocal.com.trls.message.TRLSMessageActivity"
+            android:label="Mensagem"
+            android:parentActivityName="lbslocal.com.trlstests.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="lbslocal.com.trlstests.MainActivity"/>
 </activity>
 
 <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
