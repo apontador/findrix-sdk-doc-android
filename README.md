@@ -25,7 +25,7 @@ android {
 
 dependencies {
 	compile(name:'trls', ext:'aar')
-	compile 'com.google.android.gms:play-services:6.5.87'
+	compile 'com.google.android.gms:play-services:7.8.0'
     	compile 'com.google.code.gson:gson:2.3.1'
     	compile('org.apache.httpcomponents:httpmime:4.3.6') {
         	exclude module: 'httpclient'
