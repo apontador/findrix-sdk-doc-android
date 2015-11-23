@@ -73,6 +73,7 @@ Add the information below before the closing </application> tag:
 <receiver android:name="lbslocal.com.trls.receivers.TRLSWiFiReceiver" >
             <intent-filter>
                 <action android:name="android.net.wifi.SCAN_RESULTS" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
             </intent-filter>
         </receiver>
 
