@@ -47,6 +47,8 @@ Add the information below before the closing </application> tag:
 
 <receiver android:name="lbslocal.com.trls.receivers.TRLSLocationReceiver" />
 
+<receiver android:name="lbslocal.com.trls.receivers.TRLSAlarmReceiver" />
+
 <receiver android:name="lbslocal.com.trls.gcm.<receiver
             android:name="lbslocal.com.trls.receivers.TRLSGCMBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
