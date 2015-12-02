@@ -54,6 +54,7 @@ Add the information below before the closing </application> tag:
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
                 <category android:name="lbslocal.com.trls.gcm" />
             </intent-filter>
 </receiver>
