@@ -47,8 +47,6 @@ Add the information below before the closing </application> tag:
 
 <receiver android:name="lbslocal.com.trls.receivers.TRLSLocationReceiver" />
 
-<receiver android:name="lbslocal.com.trls.receivers.TRLSAlarmReceiver" />
-
 <receiver android:name="lbslocal.com.trls.gcm.<receiver
             android:name="lbslocal.com.trls.receivers.TRLSGCMBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
@@ -109,8 +107,6 @@ Also add the permissions below:
 <uses-permission android:name="YOUR_PACKAGE.permission.C2D_MESSAGE" />
 <permission android:name="YOUR_PACKAGE.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 <uses-permission android:name="android.permission.BLUETOOTH" />
-<!--<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />-->
-<!--<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />-->
 ```
 
 ##Initialization
