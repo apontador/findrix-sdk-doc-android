@@ -129,7 +129,7 @@ protected void onCreate(Bundle savedInstanceState) {
         };
 
 	try {
-		TRLS.start(MainActivity.this, externalId, clientId, clientSecret, deviceName, devicePhoneNumber, devicePhoto, callback);
+		TRLS.start(MainActivity.this, externalId, clientId, clientSecret, deviceName, devicePhoneNumber, devicePhoto, senderId, callback);
 	} catch (Exception e) {
             e.printStackTrace();
         }
@@ -143,6 +143,7 @@ protected void onCreate(Bundle savedInstanceState) {
 - deviceName – Can be null or empty
 - devicePhoneNumber - Can be null or empty
 - devicePhoto - Can be null or empty
+- senderId - You can use TRLs with other push provider(ie "SENDER_ID_1,SENDER_ID_2"). Can be null of empty
 - callback - Device creation callback 
 
 ##Push notifications
@@ -160,3 +161,4 @@ public void onReceive(Context context, Intent intent){
 	} 
 }
 ```
+**If you want to register your app with multiple additional sender IDs, then the senderId parameter should hold a comma-delimited list of sender IDs.**
