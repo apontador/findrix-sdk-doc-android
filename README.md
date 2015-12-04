@@ -47,8 +47,8 @@ Add the information below before the closing </application> tag:
 
 <receiver android:name="lbslocal.com.trls.receivers.TRLSLocationReceiver" />
 
-<receiver android:name="lbslocal.com.trls.gcm.<receiver
-            android:name="lbslocal.com.trls.receivers.TRLSGCMBroadcastReceiver"
+<receiver 
+	    android:name="lbslocal.com.trls.receivers.TRLSGCMBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
