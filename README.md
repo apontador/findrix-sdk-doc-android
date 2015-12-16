@@ -25,11 +25,10 @@ android {
 }
 
 dependencies {
-	compile(name:'trls', ext:'aar')
-	compile 'com.google.android.gms:play-services:8.3.0'
-    	compile 'com.google.code.gson:gson:2.4'
-    	compile('org.apache.httpcomponents:httpmime:4.3.6')
-    	compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
+    compile(name:'trls', ext:'aar')
+    compile 'com.google.android.gms:play-services:8.3.0'
+    compile 'com.google.code.gson:gson:2.4'
+    compile('org.apache.httpcomponents:httpmime:4.3.6')
 }
 
 android {
@@ -147,6 +146,8 @@ protected void onCreate(Bundle savedInstanceState) {
 - senderId - You can use TRLs with other push provider(ie "SENDER_ID_1,SENDER_ID_2"). Can be null of empty
 - callback - Device creation callback 
 
+**If you want to register your app with multiple additional sender IDs, then the senderId parameter should hold a comma-delimited list of sender IDs.**
+
 ##Push notifications
 ￼￼Ignore the instructions below if you don’t use Google Cloud Messaging to receive push notifications. TRLS library uses 
 
@@ -162,4 +163,3 @@ public void onReceive(Context context, Intent intent){
 	} 
 }
 ```
-**If you want to register your app with multiple additional sender IDs, then the senderId parameter should hold a comma-delimited list of sender IDs.**
