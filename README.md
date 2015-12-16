@@ -146,7 +146,7 @@ protected void onCreate(Bundle savedInstanceState) {
 - senderId - You can use TRLs with other push provider(ie "SENDER_ID_1,SENDER_ID_2"). Can be null of empty
 - callback - Device creation callback 
 
-**If you want to register your app with multiple additional sender IDs, then the senderId parameter should hold a comma-delimited list of sender IDs.**
+**If you want to register your app with multiple additional sender IDs, the senderId parameter should hold a comma-delimited list of sender IDs.**
 
 ##Push notifications
 ￼￼Ignore the instructions below if you don’t use Google Cloud Messaging to receive push notifications. TRLS library uses 
