@@ -1,7 +1,8 @@
 ##Prerequisites
 - Android Studio 1.0 or higher
-- Android 4.1 or higher (Beacon only works with Android 5.0 or higher)
-- Compile Sdk Version: 21
+- Android 4.1 or higher (Beacons only work with Android 5.0 or higher)
+- Compile SDK Version: 23
+- Target SDK Version: 23
 - Min Sdk Version: 16
 
 ##Import the library
@@ -26,12 +27,15 @@ android {
 dependencies {
 	compile(name:'trls', ext:'aar')
 	compile 'com.google.android.gms:play-services:7.8.0'
-    	compile 'com.google.code.gson:gson:2.3.1'
-    	compile('org.apache.httpcomponents:httpmime:4.3.6') {
-        	exclude module: 'httpclient'
-    	}
+    	compile 'com.google.code.gson:gson:2.4'
+    	compile('org.apache.httpcomponents:httpmime:4.3.6')
     	compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
 }
+
+android {
+    useLibrary 'org.apache.http.legacy'
+}
+
 ```
 
 ##Dependencies
@@ -110,6 +114,7 @@ Also add the permissions below:
 ```
 
 ##Initialization
+Before starting the library, make sure to check for and request location permission at runtime. More info at http://developer.android.com/intl/pt-br/training/permissions/index.html
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
