@@ -29,6 +29,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:8.3.0'
     compile 'com.google.code.gson:gson:2.4'
     compile('org.apache.httpcomponents:httpmime:4.3.6')
+    compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
 }
 
 android {
