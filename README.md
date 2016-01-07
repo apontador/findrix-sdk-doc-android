@@ -130,7 +130,7 @@ protected void onCreate(Bundle savedInstanceState) {
         };
 
 	try {
-		TRLS.start(MainActivity.this, externalId, clientId, clientSecret, deviceName, devicePhoneNumber, devicePhoto, senderId, callback);
+		TRLS.start(MainActivity.this, userId, clientId, clientSecret, deviceName, devicePhoneNumber, devicePhoto, senderId, callback);
 	} catch (Exception e) {
             e.printStackTrace();
         }
@@ -138,7 +138,7 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 #####Parameters:
-- externalId – Provide an ID for this device(can be null or empty) 
+- userId – Provide an ID for this device(can be null or empty) 
 - clientId – Request a client id with TRLS dev team
 - clientSecret – Request a client secret with TRLS dev team 
 - deviceName – Can be null or empty
