@@ -40,7 +40,7 @@ android {
 
 ##Dependencies
 Add the following dependencies to your app(right click on your module -> Open Module Settings -> Dependencies):
-- com.google.android.gms:play-services:7.8.0
+- com.google.android.gms:play-services:8.4.0
 - com.google.code.gson:gson:2.3.1 or higher
 - org.apache.httpcomponents:httpmime:4.3.6
 - org.apache.httpcomponents:httpclient-android:4.3.5
