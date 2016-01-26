@@ -85,10 +85,10 @@ Add the information below before the closing </application> tag:
 <activity
             android:name="lbslocal.com.trls.message.TRLSMessageActivity"
             android:label="Mensagem"
-            android:parentActivityName="lbslocal.com.trlstests.MainActivity">
+            android:parentActivityName="YOUR_MAIN_ACTIVITY">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="lbslocal.com.trlstests.MainActivity"/>
+                android:value="YOUR_MAIN_ACTIVITY"/>
 </activity>
 
 <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
