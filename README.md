@@ -123,7 +123,7 @@ protected void onCreate(Bundle savedInstanceState) {
             @Override
             public void didCreateDevice(String deviceId, Error error) {
 
-                if(error != null) Log.d("TRLS", "Device created " + deviceId);
+                if(error == null) Log.d("TRLS", "Device created " + deviceId);
                 else Log.d("TRLS", "Error creating device " + error.getMessage());
 
             }
