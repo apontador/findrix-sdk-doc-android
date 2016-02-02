@@ -130,7 +130,7 @@ protected void onCreate(Bundle savedInstanceState) {
         };
 
 	try {
-		TRLS.start(MainActivity.this, userId, clientId, clientSecret, deviceName, devicePhoneNumber, devicePhoto, senderId, callback);
+		TRLS.start(MainActivity.this, userId, clientId, clientSecret, name, phone, email, photo, senderId, callback);
 	} catch (Exception e) {
             e.printStackTrace();
         }
@@ -141,9 +141,10 @@ protected void onCreate(Bundle savedInstanceState) {
 - userId – Provide an ID for this device(can be null or empty) 
 - clientId – Request a client id with TRLS dev team
 - clientSecret – Request a client secret with TRLS dev team 
-- deviceName – Can be null or empty
-- devicePhoneNumber - Can be null or empty
-- devicePhoto - Can be null or empty
+- name – Can be null or empty
+- phone - Can be null or empty
+- email - Can be null or empty
+- photo - Can be null or empty
 - senderId - You can use TRLs with other push provider(ie "SENDER_ID_1,SENDER_ID_2"). Can be null of empty
 - callback - Device creation callback 
 
