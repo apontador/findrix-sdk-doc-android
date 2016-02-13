@@ -26,7 +26,9 @@ android {
 
 dependencies {
     compile(name:'trls', ext:'aar')
-    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.google.android.gms:play-services-location:8.4.0'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
     compile 'com.google.code.gson:gson:2.4'
     compile('org.apache.httpcomponents:httpmime:4.3.6')
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
@@ -37,13 +39,6 @@ android {
 }
 
 ```
-
-##Dependencies
-Add the following dependencies to your app(right click on your module -> Open Module Settings -> Dependencies):
-- com.google.android.gms:play-services:8.4.0
-- com.google.code.gson:gson:2.3.1 or higher
-- org.apache.httpcomponents:httpmime:4.3.6
-- org.apache.httpcomponents:httpclient-android:4.3.5
 
 ##Manifest file
 Add the information below before the closing </application> tag:
