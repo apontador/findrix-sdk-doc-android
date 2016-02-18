@@ -65,7 +65,6 @@ Add the information below before the closing </application> tag:
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <!--action android:name="android.intent.action.REBOOT"/-->
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
