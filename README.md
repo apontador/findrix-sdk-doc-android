@@ -17,7 +17,9 @@ android {
 }
 
 dependencies {
-    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.google.android.gms:play-services-location:8.4.0'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
     compile 'com.google.code.gson:gson:2.4'
     compile 'org.apache.httpcomponents:httpmime:4.3.6'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
@@ -56,7 +58,6 @@ Add the information below before the closing </application> tag:
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <!--action android:name="android.intent.action.REBOOT"/-->
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
