@@ -6,16 +6,8 @@
 - Min Sdk Version: 16
 
 ##Import the library
-1. Add the file trls.aar to PROJECT_ROOT_FOLDER/libs (create the libs folder if it doesn’t exist)
-2. Open build.gradle file and add the information below:
+Open build.gradle file and add the information below:
 ```gradle
-repositories {
-	mavenCentral()
-	flatDir {
-		dirs 'libs'
-	} 
-}
-
 android {
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
@@ -25,11 +17,14 @@ android {
 }
 
 dependencies {
-    compile(name:'trls', ext:'aar')
-    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.google.android.gms:play-services-location:8.4.0'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
     compile 'com.google.code.gson:gson:2.4'
-    compile('org.apache.httpcomponents:httpmime:4.3.6')
+    compile 'org.apache.httpcomponents:httpmime:4.3.6'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
+    compile 'com.lbslocal.findrix:library:1.0.0'
+    
 }
 
 android {
@@ -37,13 +32,6 @@ android {
 }
 
 ```
-
-##Dependencies
-Add the following dependencies to your app(right click on your module -> Open Module Settings -> Dependencies):
-- com.google.android.gms:play-services:8.4.0
-- com.google.code.gson:gson:2.3.1 or higher
-- org.apache.httpcomponents:httpmime:4.3.6
-- org.apache.httpcomponents:httpclient-android:4.3.5
 
 ##Manifest file
 Add the information below before the closing </application> tag:
@@ -70,7 +58,6 @@ Add the information below before the closing </application> tag:
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <!--action android:name="android.intent.action.REBOOT"/-->
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
@@ -130,7 +117,7 @@ protected void onCreate(Bundle savedInstanceState) {
         };
 
 	try {
-		TRLS.start(MainActivity.this, userId, clientId, clientSecret, deviceName, devicePhoneNumber, devicePhoto, senderId, callback);
+		TRLS.start(ctx, userId, clientId, clientSecret, name, phone, email, photo, senderId, callback);
 	} catch (Exception e) {
             e.printStackTrace();
         }
@@ -138,12 +125,14 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 #####Parameters:
+- ctx - Context
 - userId – Provide an ID for this device(can be null or empty) 
 - clientId – Request a client id with TRLS dev team
 - clientSecret – Request a client secret with TRLS dev team 
-- deviceName – Can be null or empty
-- devicePhoneNumber - Can be null or empty
-- devicePhoto - Can be null or empty
+- name – Can be null or empty
+- phone - Can be null or empty
+- email - Can be null or empty
+- photo - Can be null or empty
 - senderId - You can use TRLs with other push provider(ie "SENDER_ID_1,SENDER_ID_2"). Can be null of empty
 - callback - Device creation callback 
 
@@ -164,3 +153,9 @@ public void onReceive(Context context, Intent intent){
 	} 
 }
 ```
+
+##Changelog
+
+#####v1.0.0
+
+First public version
