@@ -157,4 +157,6 @@ public void onReceive(Context context, Intent intent){
 ##Proguard
 
 #####Add the following line to your proguard file:
+```proguard
 -keep class lbslocal.com.trls.**{*;}
+```
