@@ -23,7 +23,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.4'
     compile 'org.apache.httpcomponents:httpmime:4.3.6'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
-    compile 'com.lbslocal.findrix:library:1.0.2.1'
+    compile 'com.lbslocal.findrix:library:1.0.2.6'
     
 }
 
@@ -48,7 +48,6 @@ Add the information below before the closing </application> tag:
                 <category android:name="lbslocal.com.trls.gcm" />
             </intent-filter>
 </receiver>
-<service android:name="lbslocal.com.trls.gcm.TRLSGCMIntentService" />
 		
 <service android:enabled="true" android:name="lbslocal.com.trls.core.TRLSService"/>
 
