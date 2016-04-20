@@ -138,9 +138,7 @@ protected void onCreate(Bundle savedInstanceState) {
 **If you want to register your app with multiple additional sender IDs, the senderId parameter should hold a comma-delimited list of sender IDs.**
 
 ##Push notifications
-￼￼Ignore the instructions below if you don’t use Google Cloud Messaging to receive push notifications. TRLS library uses 
-
-Google Cloud Messaging to send push notifications. As you noticed in the manifest file, TRLS library has it’s own receiver. But you can have yours, and keep your own push notification service running. If you already have a broadcast receiver to process your push notifications, you need to verify if the notification is from a TRLS server:
+TRLS library uses Google Cloud Messaging to send push notifications. As you noticed in the manifest file, TRLS library has it’s own receiver. But you can have yours, and keep your own push notification service running. If you already have a broadcast receiver to process your push notifications, you need to verify if the notification is from a TRLS server:
 
 ```java
 @Override
@@ -151,6 +149,12 @@ public void onReceive(Context context, Intent intent){
 		//It's a TRLS notification, the library will process it automatically;
 	} 
 }
+```
+
+Add the following meta-data to the app's manifest.xml file:
+
+```xml
+<meta-data android:name="lbslocal.com.trls.notification_icon" android:resource="@drawable/ic_announcement_white_18dp"/>
 ```
 
 ##Proguard
