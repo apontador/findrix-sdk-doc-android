@@ -154,7 +154,7 @@ public void onReceive(Context context, Intent intent){
 Add the following meta-data to the app's manifest.xml file:
 
 ```xml
-<meta-data android:name="lbslocal.com.trls.notification_icon" android:resource="@drawable/ic_announcement_white_18dp"/>
+<meta-data android:name="lbslocal.com.trls.notification_icon" android:resource="@drawable/YOUR_NOTIFICATION_ICON"/>
 ```
 
 ##Proguard
