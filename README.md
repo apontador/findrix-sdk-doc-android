@@ -23,7 +23,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.4'
     compile 'org.apache.httpcomponents:httpmime:4.3.6'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
-    compile 'com.lbslocal.findrix:library:1.0.2.6'
+    compile 'com.lbslocal.findrix:library:1.0.3'
     
 }
 
@@ -138,18 +138,6 @@ protected void onCreate(Bundle savedInstanceState) {
 **If you want to register your app with multiple additional sender IDs, the senderId parameter should hold a comma-delimited list of sender IDs.**
 
 ##Push notifications
-TRLS library uses Google Cloud Messaging to send push notifications. As you noticed in the manifest file, TRLS library has it’s own receiver. But you can have yours, and keep your own push notification service running. If you already have a broadcast receiver to process your push notifications, you need to verify if the notification is from a TRLS server:
-
-```java
-@Override
-public void onReceive(Context context, Intent intent){
-	if(!TRLSGCMBroadcastReceiver.isTrlsNotification(intent)){
-		//It's not a TRLS notification, you can process de push notification
-	}else{
-		//It's a TRLS notification, the library will process it automatically;
-	} 
-}
-```
 
 Add the following meta-data to the app's manifest.xml file:
 
