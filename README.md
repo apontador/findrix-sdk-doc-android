@@ -51,6 +51,12 @@ Add the information below before the closing </application> tag:
 		
 <service android:enabled="true" android:name="lbslocal.com.trls.core.TRLSService"/>
 
+ <receiver android:name="lbslocal.com.trls.receivers.TRLSPushActionReceiver">
+            <intent-filter>
+                <action android:name="lbslocal.com.trls.PUSH_ACTION" />
+            </intent-filter>
+ </receiver>
+        
 <receiver android:name="lbslocal.com.trls.receivers.TRLSBootReceiver"
             android:enabled="true"
             android:exported="true"
