@@ -157,3 +157,43 @@ Add the following meta-data to the app's manifest.xml file:
 ```proguard
 -keep class lbslocal.com.trls.**{*;}
 ```
+
+##Customize the UI for Your App
+
+Once you've set up your library integration, you can customize the UI to match the color scheme and branding of your app to ensure the best user experience for your users.  
+Set the style for the message with the **android:theme** attribute for the **TRLSMessageActivity**. This attribute is read from the AndroidManifest.xml file.If no values are set, the UI will default theme.  
+For example,the following style will produce the custom theme.  
+```xml
+ <style name="MessageStyle" parent="Theme.TRLSMessage">
+ 
+        <item name="com_lbslocal_trls_background_color">@android:color/white</item>
+        <item name="com_lbslocal_trls_header_background_color">#4CAF50</item>
+        <item name="com_lbslocal_trls_header_text_color">@android:color/white</item>
+        <item name="com_lbslocal_trls_status_bar_color">#388E3C</item>
+        <item name="com_lbslocal_trls_title_text_color">#727272</item>
+        <item name="com_lbslocal_trls_title_text_size">20sp</item>
+        <item name="com_lbslocal_trls_description_text_color">#212121</item>
+        <item name="com_lbslocal_trls_description_text_size">14sp</item>
+        <item name="com_lbslocal_trls_button_action_text_color">@android:color/white</item>
+        <item name="com_lbslocal_trls_button_action_text_color_pressed">@android:color/white</item>
+        <item name="com_lbslocal_trls_button_action_text_size">16sp</item>
+        <item name="com_lbslocal_trls_button_action_background_color">#448AFF</item>
+        <item name="com_lbslocal_trls_button_action_background_color_pressed">#448AFF</item>
+
+</style>
+```   
+AndroidManifest.xml
+
+```xml
+<activity
+            android:name="lbslocal.com.trls.message.TRLSMessageActivity"
+            android:label="Mensagem"
+            android:theme="@style/MessageStyle"
+            android:parentActivityName="YOUR_MAIN_ACTIVITY">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="YOUR_MAIN_ACTIVITY"/>
+</activity>
+```   
+
+
