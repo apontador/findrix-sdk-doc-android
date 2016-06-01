@@ -1,9 +1,9 @@
 ##Prerequisites
 - Android Studio 1.0 or higher
-- Android 4.1 or higher (Beacons only work with Android 5.0 or higher)
+- Android 2.3 or higher (Beacons only work with Android 5.0 or higher)
 - Compile SDK Version: 23
 - Target SDK Version: 23
-- Min Sdk Version: 16
+- Min Sdk Version: 9
 
 ##Import the library
 Open build.gradle file and add the information below:
@@ -24,7 +24,6 @@ dependencies {
     compile 'org.apache.httpcomponents:httpmime:4.3.6'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
     compile 'com.lbslocal.findrix:library:1.0.7'
-    
 }
 
 android {
@@ -37,27 +36,27 @@ android {
 Add the information below before the closing </application> tag:
 ```xml
 
-<receiver android:name="lbslocal.com.trls.receivers.TRLSLocationReceiver" />
+<receiver android:name="com.lbslocal.findrix.receivers.FDXLocationReceiver" />
 
 <receiver 
-	    android:name="lbslocal.com.trls.receivers.TRLSGCMBroadcastReceiver"
+	    android:name="com.lbslocal.findrix.receivers.FDXGCMBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="lbslocal.com.trls.gcm" />
+                <category android:name="com.lbslocal.findrix.gcm" />
             </intent-filter>
 </receiver>
 		
-<service android:enabled="true" android:name="lbslocal.com.trls.core.TRLSService"/>
+<service android:enabled="true" android:name="com.lbslocal.findrix.core.FDXService"/>
 
- <receiver android:name="lbslocal.com.trls.receivers.TRLSPushActionReceiver">
+ <receiver android:name="com.lbslocal.findrix.receivers.FDXPushActionReceiver">
             <intent-filter>
-                <action android:name="lbslocal.com.trls.PUSH_ACTION" />
+                <action android:name="com.lbslocal.findrix.PUSH_ACTION" />
             </intent-filter>
  </receiver>
         
-<receiver android:name="lbslocal.com.trls.receivers.TRLSBootReceiver"
+<receiver android:name="com.lbslocal.findrix.receivers.FDXBootReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
@@ -67,7 +66,7 @@ Add the information below before the closing </application> tag:
             </intent-filter>
         </receiver>
 
-<receiver android:name="lbslocal.com.trls.receivers.TRLSWiFiReceiver" >
+<receiver android:name="com.lbslocal.findrix.receivers.FDXWiFiReceiver" >
             <intent-filter>
                 <action android:name="android.net.wifi.SCAN_RESULTS" />
                 <action android:name="android.net.wifi.STATE_CHANGE" />
@@ -75,7 +74,7 @@ Add the information below before the closing </application> tag:
         </receiver>
 
 <activity
-            android:name="lbslocal.com.trls.message.TRLSMessageActivity"
+            android:name="com.lbslocal.findrix.message.FDXMessageActivity"
             android:label="Mensagem"
             android:parentActivityName="YOUR_MAIN_ACTIVITY">
             <meta-data
@@ -111,18 +110,18 @@ Before starting the library, make sure to check for and request location permiss
 @Override
 protected void onCreate(Bundle savedInstanceState) {
 
-	TRLSCallback callback = new TRLSCallback() {
+	FDXCallback callback = new FDXCallback() {
             @Override
             public void didCreateDevice(String deviceId, Error error) {
 
-                if(error == null) Log.d("TRLS", "Device created " + deviceId);
-                else Log.d("TRLS", "Error creating device " + error.getMessage());
+                if(error == null) Log.d("Findrix", "Device created " + deviceId);
+                else Log.d("Findrix", "Error creating device " + error.getMessage());
 
             }
         };
 
 	try {
-		TRLS.start(ctx, userId, clientId, clientSecret, name, phone, email, photo, senderId, callback);
+		Findrix.start(ctx, userId, clientId, clientSecret, name, phone, email, photo, senderId, callback);
 	} catch (Exception e) {
             e.printStackTrace();
         }
@@ -148,14 +147,14 @@ protected void onCreate(Bundle savedInstanceState) {
 Add the following meta-data to the app's manifest.xml file:
 
 ```xml
-<meta-data android:name="lbslocal.com.trls.notification_icon" android:resource="@drawable/YOUR_NOTIFICATION_ICON"/>
+<meta-data android:name="com.lbslocal.findrix.notification_icon" android:resource="@drawable/YOUR_NOTIFICATION_ICON"/>
 ```
 
 ##Proguard
 
 #####Add the following line to your proguard file:
 ```proguard
--keep class lbslocal.com.trls.**{*;}
+-keep class com.lbslocal.findrix.**{*;}
 ```
 
 ##Customize the UI for Your App
@@ -166,19 +165,19 @@ For example,the following style will produce the custom theme.
 ```xml
  <style name="MessageStyle" parent="Theme.TRLSMessage">
  
-        <item name="com_lbslocal_trls_background_color">@android:color/white</item>
-        <item name="com_lbslocal_trls_header_background_color">#4CAF50</item>
-        <item name="com_lbslocal_trls_header_text_color">@android:color/white</item>
-        <item name="com_lbslocal_trls_status_bar_color">#388E3C</item>
-        <item name="com_lbslocal_trls_title_text_color">#727272</item>
-        <item name="com_lbslocal_trls_title_text_size">20sp</item>
-        <item name="com_lbslocal_trls_description_text_color">#212121</item>
-        <item name="com_lbslocal_trls_description_text_size">14sp</item>
-        <item name="com_lbslocal_trls_button_action_text_color">@android:color/white</item>
-        <item name="com_lbslocal_trls_button_action_text_color_pressed">@android:color/white</item>
-        <item name="com_lbslocal_trls_button_action_text_size">16sp</item>
-        <item name="com_lbslocal_trls_button_action_background_color">#448AFF</item>
-        <item name="com_lbslocal_trls_button_action_background_color_pressed">#448AFF</item>
+        <item name="com_lbslocal_findrix_background_color">@android:color/white</item>
+        <item name="com_lbslocal_findrix_header_background_color">#4CAF50</item>
+        <item name="com_lbslocal_findrix_header_text_color">@android:color/white</item>
+        <item name="com_lbslocal_findrix_status_bar_color">#388E3C</item>
+        <item name="com_lbslocal_findrix_title_text_color">#727272</item>
+        <item name="com_lbslocal_findrix_title_text_size">20sp</item>
+        <item name="com_lbslocal_findrix_description_text_color">#212121</item>
+        <item name="com_lbslocal_findrix_description_text_size">14sp</item>
+        <item name="com_lbslocal_findrix_button_action_text_color">@android:color/white</item>
+        <item name="com_lbslocal_findrix_button_action_text_color_pressed">@android:color/white</item>
+        <item name="com_lbslocal_findrix_button_action_text_size">16sp</item>
+        <item name="com_lbslocal_findrix_button_action_background_color">#448AFF</item>
+        <item name="com_lbslocal_findrix_button_action_background_color_pressed">#448AFF</item>
 
 </style>
 ```   
@@ -186,7 +185,7 @@ AndroidManifest.xml
 
 ```xml
 <activity
-            android:name="lbslocal.com.trls.message.TRLSMessageActivity"
+            android:name="com.lbslocal.findrix.message.FDXMessageActivity"
             android:label="Mensagem"
             android:theme="@style/MessageStyle"
             android:parentActivityName="YOUR_MAIN_ACTIVITY">
