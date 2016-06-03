@@ -36,53 +36,59 @@ android {
 Add the information below before the closing </application> tag:
 ```xml
 
-<receiver android:name="com.lbslocal.findrix.receivers.FDXLocationReceiver" />
+ <receiver android:name="com.lbslocal.findrix.receivers.FDXLocationReceiver" />
 
-<receiver 
-	    android:name="com.lbslocal.findrix.receivers.FDXGCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="com.lbslocal.findrix.gcm" />
-            </intent-filter>
-</receiver>
-		
-<service android:enabled="true" android:name="com.lbslocal.findrix.core.FDXService"/>
+    <receiver
+        android:name="com.lbslocal.findrix.receivers.FDXGCMBroadcastReceiver"
+        android:permission="com.google.android.c2dm.permission.SEND">
+        <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
- <receiver android:name="com.lbslocal.findrix.receivers.FDXPushActionReceiver">
-            <intent-filter>
-                <action android:name="com.lbslocal.findrix.PUSH_ACTION" />
-            </intent-filter>
- </receiver>
-        
-<receiver android:name="com.lbslocal.findrix.receivers.FDXBootReceiver"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
+            <category android:name="com.lbslocal.findrix.gcm" />
+        </intent-filter>
+    </receiver>
 
-<receiver android:name="com.lbslocal.findrix.receivers.FDXWiFiReceiver" >
-            <intent-filter>
-                <action android:name="android.net.wifi.SCAN_RESULTS" />
-                <action android:name="android.net.wifi.STATE_CHANGE" />
-            </intent-filter>
-        </receiver>
+    <service
+        android:name="com.lbslocal.findrix.core.FDXService"
+        android:enabled="true" />
 
-<activity
-            android:name="com.lbslocal.findrix.message.FDXMessageActivity"
-            android:label="Mensagem"
-            android:parentActivityName="YOUR_MAIN_ACTIVITY">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="YOUR_MAIN_ACTIVITY"/>
-</activity>
+    <receiver android:name="com.lbslocal.findrix.receivers.FDXPushActionReceiver">
+        <intent-filter>
+            <action android:name="com.lbslocal.findrix.PUSH_ACTION" />
+        </intent-filter>
+    </receiver>
 
-<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <receiver
+        android:name="com.lbslocal.findrix.receivers.FDXBootReceiver"
+        android:enabled="true"
+        android:exported="true"
+        android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </receiver>
+
+    <receiver android:name="com.lbslocal.findrix.receivers.FDXWiFiReceiver">
+        <intent-filter>
+            <action android:name="android.net.wifi.SCAN_RESULTS" />
+            <action android:name="android.net.wifi.STATE_CHANGE" />
+        </intent-filter>
+    </receiver>
+
+    <activity
+        android:name="com.lbslocal.findrix.message.FDXMessageActivity"
+        android:label="Mensagem"
+        android:parentActivityName="YOUR_MAIN_ACTIVITY">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="YOUR_MAIN_ACTIVITY" />
+    </activity>
+
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
 ```
 Also add the permissions below:
 ```xml
