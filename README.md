@@ -169,7 +169,7 @@ Once you've set up your library integration, you can customize the UI to match t
 Set the style for the message with the **android:theme** attribute for the **TRLSMessageActivity**. This attribute is read from the AndroidManifest.xml file.If no values are set, the UI will default theme.  
 For example,the following style will produce the custom theme.  
 ```xml
- <style name="MessageStyle" parent="Theme.TRLSMessage">
+ <style name="MessageStyle" parent="Theme.FindrixMessage">
  
         <item name="com_lbslocal_findrix_background_color">@android:color/white</item>
         <item name="com_lbslocal_findrix_header_background_color">#4CAF50</item>
