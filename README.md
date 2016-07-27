@@ -111,7 +111,9 @@ Also add the permissions below:
 ```
 
 ##Initialization
-Before starting the library, make sure to check for and request location permission at runtime. More info at http://developer.android.com/intl/pt-br/training/permissions/index.html
+Before starting the library, make sure to check for and request location permission at runtime. More info at http://developer.android.com/intl/pt-br/training/permissions/index.html.
+
+Call Findrix.start() on your MainActivity's onCreate method:
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
