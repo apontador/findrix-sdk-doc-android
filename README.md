@@ -23,7 +23,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.4'
     compile 'org.apache.httpcomponents:httpmime:4.3.6'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
-    compile 'com.lbslocal.findrix:library:2.0.7.0'
+    compile 'com.lbslocal.findrix:library:2.0.8.0'
 }
 
 android {
@@ -128,7 +128,7 @@ protected void onCreate(Bundle savedInstanceState) {
             }
         };
 
-	Findrix.start(ctx, userId, clientId, clientSecret, name, phone, email, photo, senderId, callback);
+	Findrix.start(ctx, userId, clientId, clientSecret, photo, senderId, callback);
 	
 }
 ```
@@ -138,9 +138,6 @@ protected void onCreate(Bundle savedInstanceState) {
 - userId – Provide an ID for this device(can be null or empty) 
 - clientId – Request a client id with TRLS dev team
 - clientSecret – Request a client secret with TRLS dev team 
-- name – Can be null or empty
-- phone - Can be null or empty
-- email - Can be null or empty
 - photo - Can be null or empty
 - senderId - You can use TRLs with other push provider(ie "SENDER_ID_1,SENDER_ID_2"). Can be null of empty
 - callback - Device creation callback 
